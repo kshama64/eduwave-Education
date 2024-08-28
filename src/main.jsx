@@ -7,7 +7,6 @@ import Hero from './components/Hero.jsx'
 import HomePage from './components/HomePage.jsx'
 import Coursesforkids from './components/Courses for kids.jsx'
 import Freestudymaterial from './components/Free study material.jsx'
-import Onlinecentres from './components/Online centres.jsx'
 import CBSE from './components/CBSE.jsx'
 import NCERTsolution from './components/NCERT solution.jsx'
 import JEEmain from './components/JEE main.jsx'
@@ -32,6 +31,7 @@ import Science from './components/Science.jsx'
 import English from './components/English.jsx'
 import Socialstudy from './components/Socialstudy.jsx'
 import ITI from './components/ITI.jsx'
+import Onlincourses from './components/Online courses.jsx'
 
 const router=createBrowserRouter(
   createRoutesFromElements(
@@ -40,7 +40,7 @@ const router=createBrowserRouter(
         <Route path='/home' element={<HomePage/>}/>
         <Route path='/courses' element={<Coursesforkids/>}/>
         <Route path='/study' element={<Freestudymaterial/>}/>
-        <Route path='/online' element={<Onlinecentres/>}/>
+        <Route path='/online' element={<Onlincourses/>}/>
         <Route path='/ncert' element={<NCERTsolution/>}/>
         <Route path='/cbse' element={<CBSE/>}/>
         <Route path='/jee' element={<JEEmain/>}/>
