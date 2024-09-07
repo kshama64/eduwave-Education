@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import img from '../assets/img2.jpg.png'
 export default function Math() {
   return (
     <div className="class12 p-4">
       <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-6">
         Enrol in Maths Online Tuition From EDU Wave.
       </h2>
+      <img src={img} alt="" className='w-full h-auto mb-6 max-w-screen-xl' />
 
       <nav className="bg-white shadow-lg">
         <div className="container mx-auto px-4">

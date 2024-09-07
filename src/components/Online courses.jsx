@@ -17,6 +17,12 @@ export default function Onlincourses() {
     <li class="text-lg">School Prepration</li>
   </ul>
 </div>
+
+
+<h1 class="text-4xl text-center mt-20 font-bold text-gray-800">
+  Contact Us
+</h1>
+
 <form className="max-w-lg mx-auto bg-white p-6 shadow-md rounded-lg">
         <div className="mb-4">
           <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">Email address</label>
@@ -34,6 +40,8 @@ export default function Onlincourses() {
           Submit
         </button>
       </form>
+      
+    
    </div>
   )
 }

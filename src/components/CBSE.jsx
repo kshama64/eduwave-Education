@@ -1,13 +1,16 @@
 import React from 'react'
+import img from '../assets/img1.jpg.png'
 
 export default function CBSE() {
   return (
     <div className='p-6'>
       <h1 className='text-3xl font-bold text-center mb-6'>CBSE Board Examination 2024</h1>
       <img 
-        src="https://www.vedantu.com/seo/content-images/f02ffab0-f7a7-47ac-b5db-f21157bccab6_SEO_DWeb_895x110_%284%29.png" 
+        src={img} 
         alt="CBSE Board" 
-        className='w-full max-w-lg mx-auto mb-6'/>
+        className="w-full lg:max-w--lg mx-auto mb-6" 
+      />
+      
         
         
         

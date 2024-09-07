@@ -1,19 +1,20 @@
 import React from 'react'
+import img from '../assets/img3.png'
 
 export default function NCERTsolution() {
   return (
     <div className='p-6'>
       <h1 className='text-3xl font-bold text-center mb-6'>NCERT Solution 2024-2025</h1>
       <img 
-        src="https://vmkt.vedantu.com/vmkt/PROD/png/150a1a3a-2755-4315-b7dd-deee81076697-1704967661267-4001376723323670.png" 
+        src={img} 
         alt="NCERT Solutions" 
-        className="w-full max-w-lg mx-auto mb-6"
+        className="w-full h-auto mb-6 max-w-screen-2xl"
       />
       <h3 className='text-xl font-semibold text-center mb-4'>NCERT Solutions for Class 1 to 12 - CBSE Free PDF Download</h3>
       <p className='text-gray-700 text-justify leading-relaxed mb-6'>
         Are you looking for NCERT Solutions for Class 1 to Class 12? If yes, then we have got you all covered.<br />
         Vedantu’s NCERT solutions is a complete guide for anyone looking to strengthen their knowledge of any topic, 
-        concept, subject, or even if they want to go back and use the study material as a reference. The NCERT solutions
+        concept, subject , or even if they want to go back and use the study material as a reference. The NCERT solutions
         provided in the PDF format are created keeping in mind the CBSE exam pattern to help you score better.
       </p>
       <h2 className='text-2xl font-semibold text-center mb-4'>Detailed Overview of NCERT Solutions</h2>

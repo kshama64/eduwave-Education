@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import img from '../assets/img1.jpg.png'
 
 export default function NEET() {
   return (
@@ -8,10 +9,9 @@ export default function NEET() {
         NEET 2024: Result - June 14, Counselling Process, Seat Allotment and Answer Key
       </h1>
       <img
-        src="https://vmkt.vedantu.com/vmkt/PROD/png/150a1a3a-2755-4315-b7dd-deee81076697-1704967661267-4001376723323670.png"
+        src={img}
         alt="NEET Banner"
-        className="w-full h-auto mb-4"
-      />
+        className="w-full h-auto mb-4"/>
 
       <nav className="bg-white shadow-md mb-4">
         <div className="container mx-auto px-4">
@@ -183,24 +183,29 @@ export default function NEET() {
     <input
       type="email"
       id="email"
+      placeholder="Enter your email address"
       className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
       required
     />
+    <p className="text-red-500 text-xs mt-1">Please enter a valid email address.</p>
   </div>
   <div className="mb-4">
     <label htmlFor="phone" className="block text-gray-700 text-sm font-medium mb-1">Phone Number</label>
     <input
-      type="number"
+      type="tel"
       id="phone"
+      placeholder="Enter your phone number"
       className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
       required
     />
+    <p className="text-red-500 text-xs mt-1">Please enter a valid phone number.</p>
   </div>
   <div className="mb-4">
     <label htmlFor="message" className="block text-gray-700 text-sm font-medium mb-1">Message</label>
     <textarea
       id="message"
       rows="4"
+      placeholder="Enter your message here"
       className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
     />
   </div>
@@ -211,6 +216,7 @@ export default function NEET() {
     Submit
   </button>
 </form>
+
 
     </div>
   );

@@ -1,11 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import img from '../assets/img.jpg.png'
 
 export default function JEEAdvanced() {
   return (
     <div className='p-4'>
        <h3 className='text-2xl font-bold text-center mb-6'>JEE Advanced 2024: Registration Started, Exam Dates (Out), Syllabus, & Eligibility Criteria</h3>
-       <img src="https://www.vedantu.com/seo/content-images/f02ffab0-f7a7-47ac-b5db-f21157bccab6_SEO_DWeb_895x110_%284%29.png" alt="" className='w-full h-auto mb-6' />
+       <img src={img} alt="" className='w-full h-auto mb-6' />
        <h3 className='text-2xl font-bold text-center mb-6'>JEE Advanced 2024: Registration Started, Exam Dates (Out), Syllabus, & Eligibility Criteria</h3>
        <p className='mb-6 text-lg'>
          Candidates must have secured a rank among the top 2.5 lakh rank holders in the JEE Main exam to be eligible for JEE Advanced 2024. <br />

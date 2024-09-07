@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import img from '../assets/img2.jpg.png'
 
 export default function Class12tuition() {
   return (
@@ -7,6 +8,7 @@ export default function Class12tuition() {
       <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-6">
         Enrol For Online Tuition For Class 5 To Ace Board Exams
       </h2>
+      <img src={img} alt="" className='w-full h-auto mb-6 max-w-screen-xl' />
 
       <nav className="bg-white shadow-lg">
         <div className="container mx-auto px-4">

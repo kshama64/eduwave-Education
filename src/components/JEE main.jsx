@@ -129,12 +129,13 @@
 
 import React from 'react'
 import { Link } from 'react-router-dom'
+import img from '../assets/img.jpg.png'
 
 export default function JEEmain() {
   return (
     <div className='jeestart p-4'>
       <h3 className='text-2xl font-bold text-center mb-6'>JEE Main 2024: Exam dates, April Question Paper with Solutions PDF</h3>
-      <img src="https://www.vedantu.com/seo/content-images/f02ffab0-f7a7-47ac-b5db-f21157bccab6_SEO_DWeb_895x110_%284%29.png" alt="" className='w-full h-auto mb-6' />
+      <img src={img} alt="" className='w-full h-auto mb-6' />
 
       <nav className="bg-white shadow-lg mb-6">
         <div className="container mx-auto px-4">

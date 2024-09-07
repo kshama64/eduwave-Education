@@ -1,5 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import banner1 from '../assets/img.jpg.png'
+import banner12 from '../assets/img1.jpg.png'
+import banner13 from '../assets/img2.jpg.png'
+
 
 import { useState } from 'react';
 
@@ -9,15 +18,16 @@ import { useState } from 'react';
   const [isSubjectDropdownOpen, setIsSubjectDropdownOpen] = useState(false);
 
   return (
+   
     <nav className="bg-white border-b border-gray-200 shadow-md">
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link className="text-xl font-bold text-gray-800" to="#">Book Online Demo</Link>
           <div className="lg:hidden">
             <button 
               onClick={() => setIsMenuOpen(!isMenuOpen)} 
-              className="text-gray-800 hover:text-gray-600 focus:outline-none"
-            >
+              className="text-gray-800 hover:text-gray-600 focus:outline-none">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
               </svg>
@@ -106,9 +116,10 @@ import { useState } from 'react';
 }
 function HeroText({ title, subtitle }) {
   return (
+    
     <div className="text-center py-4 px-4 md:px-8 lg:px-16">
-      <h5 className="text-2xl md:text-4xl lg:text-5xl font-bold">{title}</h5>
-      <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold">{subtitle}</h3>
+      <h5 className="text-xl md:text-4xl  font-bold">{title}</h5>
+      {/* <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold">{subtitle}</h3> */}
     </div>
   );
 }
@@ -143,6 +154,11 @@ function DataTable({ data }) {
     );
 }
 export default function Hero() {
+  const slides = [
+    { id: 1, image: banner1 },
+    { id: 2, image: banner12 },
+    { id: 3, image: banner13},
+  ];
   const classData = {
     header: 'Tuition By Boards',
     rows: ['CBSE Tuition', 'ICSE Tuition', 'NEET Tuition', 'JEE Tuition']
@@ -153,6 +169,31 @@ const subjectData = {
   };
 return (
     <div>
+      <div>
+      <div className="w-full min-h-40 mt-5 mx-auto ">
+      <Swiper
+        modules={[Navigation, Pagination, Autoplay]}
+        spaceBetween={50}
+        slidesPerView={1}
+        navigation
+        pagination={{ clickable: true }}
+        autoplay={{ delay: 2000 }}
+        loop={true}>
+        {slides.map(slide => (
+          <SwiperSlide key={slide.id}>
+            <img
+              src={slide.image}
+              alt={`slide ${slide.id}`}
+              className="w-full h-1/2 object-cover "/>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+     
+    </div>
+
+        
+
+      </div>
       <HeroText 
         title="Home Tuition in EDU Wave Online: Discover a Better Way of Learning" 
         subtitle="Enhance your Academic Performance with EDU Wave Online Unleashing Infinite."/>
