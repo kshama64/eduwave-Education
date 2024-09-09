@@ -8,8 +8,7 @@ export default function NCERTsolution() {
       <img 
         src={img} 
         alt="NCERT Solutions" 
-        className="w-full h-auto mb-6 max-w-screen-2xl"
-      />
+        className="w-full h-auto mb-6 max-w-screen-2xl"/>
       <h3 className='text-xl font-semibold text-center mb-4'>NCERT Solutions for Class 1 to 12 - CBSE Free PDF Download</h3>
       <p className='text-gray-700 text-justify leading-relaxed mb-6'>
         Are you looking for NCERT Solutions for Class 1 to Class 12? If yes, then we have got you all covered.<br />
@@ -89,8 +88,7 @@ export default function NCERTsolution() {
             type="email" 
             id="email" 
             className='mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm' 
-            required
-          />
+            required/>
         </div>
         <div className='mb-4'>
           

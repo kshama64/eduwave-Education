@@ -19,105 +19,110 @@ import { useState } from 'react';
 
   return (
    
-    <nav className="bg-white border-b border-gray-200 shadow-md">
-
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <Link className="text-xl font-bold text-gray-800" to="#">Book Online Demo</Link>
-          <div className="lg:hidden">
+    <nav className="bg-white border-b border-gray-200 shadow-md relative z-50">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="flex items-center justify-between h-16">
+        <Link className="text-xl font-bold text-gray-800 hover:text-gray-600 transition duration-300 ease-in-out" to="#">Book Online Demo</Link>
+  
+        {/* Mobile Menu Toggle */}
+        <div className="lg:hidden">
+          <button 
+            onClick={() => setIsMenuOpen(!isMenuOpen)} 
+            className="text-gray-800 hover:text-gray-600 focus:outline-none transition duration-300 ease-in-out">
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+          </button>
+        </div>
+  
+        {/* Desktop Menu */}
+        <div className={`lg:flex space-x-8 ${isMenuOpen ? 'block' : 'hidden'}`}>
+          {/* Tuition By Class Dropdown */}
+          <div className="relative group">
             <button 
-              onClick={() => setIsMenuOpen(!isMenuOpen)} 
-              className="text-gray-800 hover:text-gray-600 focus:outline-none">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+              className="text-gray-800 hover:text-gray-600 font-semibold flex items-center transition duration-300 ease-in-out">
+              Tuition By Class
+              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
               </svg>
             </button>
-          </div>
-          <div className={`lg:flex space-x-8  ${isMenuOpen ? 'block' : 'hidden'}`}>
-            {/* Tuition By Class Dropdown */}
-            <div className="relative">
-              <button 
-                onClick={() => setIsClassDropdownOpen(!isClassDropdownOpen)} 
-                className="text-gray-800 hover:text-gray-600 font-semibold flex items- ">
-                Tuition By Class
-                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
-                </svg>
-              </button>
-              <div className={`${isClassDropdownOpen ? 'block' : 'hidden'} absolute bg-white shadow-lg rounded-md mt-2 py-2 z-10`}>
-                <Link to="neet" className="block px-4 py-2 text-gray-800 hover:bg-gray-100 ">NEET</Link>
-                <Link to="jee" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">JEE</Link>
-                <Link to="class12" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Class 12</Link>
-                <Link to="class11" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Class 11</Link>
-                <Link to="class10" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Class 10</Link>
-                <Link to="class9" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Class 9</Link>
-                <Link to="class8" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Class 8</Link>
-                <Link to="class7" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Class 7</Link>
-                <Link to="class6" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Class 6</Link>
-                <Link to="class5" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Class 5</Link>
-                <Link to="class4" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Class 4</Link>
-                <Link to="class3" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Class 3</Link>
-              </div>
+  
+            {/* Dropdown Menu */}
+            <div className="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 py-2 z-50 transition duration-300 ease-in-out">
+              {['NEET', 'JEE', 'Class 12', 'Class 11', 'Class 10', 'Class 9', 'Class 8', 'Class 7', 'Class 6', 'Class 5', 'Class 4', 'Class 3'].map((classItem) => (
+                <Link 
+                  to={`/${classItem.toLowerCase().replace(/\s/g, '')}`} 
+                  className="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-gray-600 transition duration-300 ease-in-out"
+                  key={classItem}>
+                  {classItem}
+                </Link>
+              ))}
             </div>
-            {/* Tuition By Subject Dropdown */}
-            <div className="relative">
-              <button 
-                onClick={() => setIsSubjectDropdownOpen(!isSubjectDropdownOpen)} 
-                className="text-gray-800 hover:text-gray-600 font-semibold flex items-center">
-                Tuition By Subject
-                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
-                </svg>
-              </button>
-              <div className={`${isSubjectDropdownOpen ? 'block' : 'hidden'} absolute bg-white shadow-lg rounded-md mt-2 py-2 z-10`}>
-                <Link to="/physics" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Physics(class 9 to 12)</Link>
-                <Link to="/chemistry" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Chemistry(class 9 to 12)</Link>
-                <Link to="/biology" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Biology (class 9 to 12)</Link>
-                <Link to="/cm" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Computer Science(class 9 to 12)</Link>
-                <Link to="/math" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Math(class 3 to 12)</Link>
-                <Link to="/science" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Science(class 6 to 12)</Link>
-                <Link to="/english" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">English (class 3 to 12)</Link>
-                <Link to="/socialstudy" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Social Study(All Subjects)</Link>
-                <Link to="/iti" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">ITI Foundation</Link>
-              </div>
+          </div>
+  
+          {/* Tuition By Subject Dropdown */}
+          <div className="relative group">
+            <button 
+              className="text-gray-800 hover:text-gray-600 font-semibold flex items-center transition duration-300 ease-in-out">
+              Tuition By Subject
+              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+  
+            {/* Dropdown Menu */}
+            <div className="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 py-2 z-50 transition duration-300 ease-in-out">
+              {['Physics', 'Chemistry', 'Biology', 'Computer Science', 'Math', 'Science', 'English', 'Social Study', 'ITI Foundation'].map((subject) => (
+                <Link 
+                  to={`/${subject.toLowerCase().replace(/\s/g, '')}`} 
+                  className="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-gray-600 transition duration-300 ease-in-out"
+                  key={subject}>
+                  {subject} (Class 9-12)
+                </Link>
+              ))}
             </div>
           </div>
         </div>
       </div>
-      {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className="lg:hidden px-4 pt-4 pb-3 space-y-1">
-          <button 
-            onClick={() => setIsClassDropdownOpen(!isClassDropdownOpen)} 
-            className="w-full text-left text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">
-            Tuition By Class
-          </button>
-          {isClassDropdownOpen && (
-            <div className="pl-4">
-              <Link to="neet" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">NEET</Link>
-              <Link to="jee" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">JEE</Link>
-            </div>
-          )}
-          <button 
-            onClick={() => setIsSubjectDropdownOpen(!isSubjectDropdownOpen)} 
-            className="w-full text-left text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">
-            Tuition By Subject
-          </button>
-          {isSubjectDropdownOpen && (
+    </div>
+  
+    {/* Mobile Menu */}
+    {isMenuOpen && (
+      <div className="lg:hidden px-4 pt-4 pb-3 space-y-1">
+        <button 
+          onClick={() => setIsClassDropdownOpen(!isClassDropdownOpen)} 
+          className="w-full text-left text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md transition duration-300 ease-in-out">
+          Tuition By Class
+        </button>
+        {isClassDropdownOpen && (
           <div className="pl-4">
-              <Link to="/physics" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Physics</Link>
-              <Link to="/chemistry" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Chemistry</Link>
-            </div>
-          )}
-        </div>
-      )}
-    </nav>
+            <Link to="/neet" className="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-gray-600 transition duration-300 ease-in-out">NEET</Link>
+            <Link to="/jee" className="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-gray-600 transition duration-300 ease-in-out">JEE</Link>
+          </div>
+        )}
+  
+        <button 
+          onClick={() => setIsSubjectDropdownOpen(!isSubjectDropdownOpen)} 
+          className="w-full text-left text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md transition duration-300 ease-in-out">
+          Tuition By Subject
+        </button>
+        {isSubjectDropdownOpen && (
+          <div className="pl-4">
+            <Link to="/physics" className="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-gray-600 transition duration-300 ease-in-out">Physics</Link>
+            <Link to="/chemistry" className="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-gray-600 transition duration-300 ease-in-out">Chemistry</Link>
+          </div>
+        )}
+      </div>
+    )}
+  </nav>
+  
+  
   );
 }
 function HeroText({ title, subtitle }) {
   return (
-    
-    <div className="text-center py-4 px-4 md:px-8 lg:px-16">
+  
+  <div className="text-center py-4 px-4 md:px-8 lg:px-16">
       <h5 className="text-xl md:text-4xl  font-bold">{title}</h5>
       {/* <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold">{subtitle}</h3> */}
     </div>
@@ -170,7 +175,7 @@ const subjectData = {
 return (
     <div>
       <div>
-      <div className="w-full min-h-40 mt-5 mx-auto ">
+      <div className="w-full min-h-40 mt-0 mx-auto ">
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={50}
@@ -190,9 +195,6 @@ return (
       </Swiper>
      
     </div>
-
-        
-
       </div>
       <HeroText 
         title="Home Tuition in EDU Wave Online: Discover a Better Way of Learning" 
@@ -206,7 +208,7 @@ return (
         <InfoSection 
           title="Master in All Subjects with Online Tuition in Your City" 
           content="Are you struggling with a subject and need expert help? Our online tuition has got you covered! Our expert tutors provide personalized lessons at affordable rates, helping you master a subject in no time."/>
-        <DataTable data={subjectData} />
+        <DataTable data={subjectData}/>
       </div>
       <div class="overflow-x-auto mt-5 ">
   <table class="w-full max-w-md mx-auto border border-gray-300 border-collapse ">
@@ -291,16 +293,20 @@ return (
       <div className="bg-red-200 p-4 rounded-md shadow-md flex flex-col items-center h-60">
         <h1 className="text-center font-bold text-black-800 mb-4">NEET</h1>
         <div className="flex flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0 items-center">
+          <Link to='class11'>
           <button
             type="button"
             className="mb-4 rounded-full bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black h-10 w-32 max-w-xs">
             Class 11
           </button>
+          </Link>
+          <Link to='class12'>
           <button
             type="button"
             className="mb-4 rounded-full bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black h-10 w-32 max-w-xs">
             Class 12
           </button>
+          </Link>
           <img
             src="https://static.pw.live/5eb393ee95fab7468a79d189/GLOBAL_CMS/9816db69-099c-4020-935c-b98cc3ab4464.webp"
             alt=""
@@ -312,16 +318,20 @@ return (
       <div className="bg-red-200 p-4 rounded-md shadow-md flex flex-col items-center h-60">
         <h1 className="text-center font-bold text-black-800 mb-4">IIT Foundation</h1>
         <div className="flex flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0 items-center">
+          <Link to='class11'>
           <button
             type="button"
             className="mb-4 rounded-full bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black h-10 w-32 max-w-xs">
             Class 11
           </button>
+          </Link>
+          <Link to='class12'>
           <button
             type="button"
             className="mb-4 rounded-full bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black h-10 w-32 max-w-xs">
             Class 12
           </button>
+          </Link>
           <img
             src="https://static.pw.live/5eb393ee95fab7468a79d189/GLOBAL_CMS/9816db69-099c-4020-935c-b98cc3ab4464.webp"
             alt=""
@@ -329,21 +339,24 @@ return (
         </div>
       </div>
     </div>
-
     <div className="p-2">
       <div className="bg-red-200 p-4 rounded-md shadow-md flex flex-col items-center h-60">
         <h1 className="text-center font-bold text-black-800 mb-4">School Preparation</h1>
         <div className="flex flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0 items-center">
+          <Link to='class11'>
           <button
             type="button"
             className="mb-4 rounded-full bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black h-10 w-32 max-w-xs">
             Class 11
           </button>
+          </Link>
+          <Link to='class12'>
           <button
             type="button"
             className="mb-4 rounded-full bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black h-10 w-32 max-w-xs">
             Class 12
           </button>
+          </Link>
           <img
             src="https://static.pw.live/5eb393ee95fab7468a79d189/GLOBAL_CMS/9816db69-099c-4020-935c-b98cc3ab4464.webp"
             alt="" className="w-28 h-32"/>
@@ -351,22 +364,25 @@ return (
       </div>
     </div>
   </div>
-  
   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
     <div className="p-2">
       <div className="bg-red-200 p-4 rounded-md shadow-md flex flex-col items-center h-60">
         <h1 className="text-center font-bold text-black-800 mb-4">NCERT Solution</h1>
         <div className="flex flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0 items-center">
+          <Link to='class11'>
           <button
             type="button"
             className="mb-4 rounded-full bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black h-10 w-32 max-w-xs">
             Class 11
           </button>
+          </Link>
+          <Link to='class12'>
           <button
             type="button"
             className="mb-4 rounded-full bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black h-10 w-32 max-w-xs">
             Class 12
           </button>
+          </Link>
           <img
             src="https://static.pw.live/5eb393ee95fab7468a79d189/GLOBAL_CMS/9816db69-099c-4020-935c-b98cc3ab4464.webp"
             alt=""
@@ -378,15 +394,19 @@ return (
       <div className="bg-red-200 p-4 rounded-md shadow-md flex flex-col items-center h-60">
         <h1 className="text-center font-bold text-black-800 mb-4">CBSE</h1>
         <div className="flex flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0 items-center">
+          <Link to='class11'>
           <button
             type="button"
             className="mb-4 rounded-full bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black h-10 w-32 max-w-xs">
             Class 11
           </button>
+          </Link>
+          <Link to='class11'>
           <button
             type="button"
             className="mb-4 rounded-full bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black h-10 w-32 max-w-xs"> Class 12
           </button>
+          </Link>
           <img
             src="https://static.pw.live/5eb393ee95fab7468a79d189/GLOBAL_CMS/9816db69-099c-4020-935c-b98cc3ab4464.webp"
             alt=""
@@ -398,16 +418,20 @@ return (
       <div className="bg-red-200 p-4 rounded-md shadow-md flex flex-col items-center h-60">
         <h1 className="text-center font-bold text-black-800 mb-4">JEE Advanced</h1>
         <div className="flex flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0 items-center">
+          <Link to='class11'>
           <button
             type="button"
             className="mb-4 rounded-full bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black h-10 w-32 max-w-xs">
             Class 11
           </button>
+          </Link>
+          <Link to='class12'>
           <button
             type="button"
             className="mb-4 rounded-full bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black h-10 w-32 max-w-xs">
             Class 12
           </button>
+          </Link>
           <img
             src="https://static.pw.live/5eb393ee95fab7468a79d189/GLOBAL_CMS/9816db69-099c-4020-935c-b98cc3ab4464.webp"
             alt="" className="w-28 h-32"/>
@@ -428,12 +452,7 @@ return (
       Book a Free Demo
     </button>
   </div>
-  {/* <div className="flex justify-center mt-8">
-    <img src="https://seo-fe.vedantu.com/cdn/images/vip/vedantu-promise.svg" alt="Vedantu Promise" className="h-24 w-24" />
-  </div>
-  <div className="flex justify-center mt-8">
-    <img src="https://seo-fe.vedantu.com/cdn/images/vip/vedantu-promise.svg" alt="Vedantu Promise" className="h-24 w-24" />
-  </div> */}
+  
 </div>
 <div className=" main6 px-4 py-8 ">
   <h1 className=" text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-6 ">
@@ -442,10 +461,10 @@ return (
 </div>
 <p className=" text-base md:text-lg lg:text-xl leading-relaxed mb-8 ml-9 ">
   The outcome of your academic curriculum entirely depends on the study material and the mentors you are
-  <br />
+  <br/>
   studying with. This is why we have designed a unique domain where you can connect with the best tutors in the country.
-  <br />
-  <br />
+  <br/>
+  <br/>
   These tutors are chosen after proper scrutiny of their academic profiles and experience. They are then trained
   <br />
   to learn the specific teaching methodologies that lead to better results. They also learn how to use the special

@@ -5,6 +5,7 @@ import './App.css'
 import Navbar from './components/Navbar'
 import { Outlet } from 'react-router-dom'
 import Navbar2 from './components/Navbar2'
+import Footer from './components/Footer'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -14,6 +15,7 @@ function App() {
  <Navbar/>
  {/* <Navbar2/> */}
  <Outlet/>
+ <Footer/>
  </>
   )
 }

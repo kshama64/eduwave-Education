@@ -127,77 +127,139 @@
 
 
 
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import img from '../assets/img.jpg.png'
 
+
 export default function JEEmain() {
+
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
   return (
     <div className='jeestart p-4'>
       <h3 className='text-2xl font-bold text-center mb-6'>JEE Main 2024: Exam dates, April Question Paper with Solutions PDF</h3>
       <img src={img} alt="" className='w-full h-auto mb-6' />
 
-      <nav className="bg-white shadow-lg mb-6">
-        <div className="container mx-auto px-4">
-          <div className="flex justify-between items-center">
-            <Link className="text-xl font-semibold text-gray-800" to="#">
-              Book Online Demo
-            </Link>
-            <div className="lg:hidden">
-              <button className="text-gray-800 focus:outline-none" type="button">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                </svg>
-              </button>
-            </div>
-            <div className="hidden lg:flex lg:items-center">
-              <ul className="flex space-x-8">
-                <li className="relative group">
-                  <button className="text-gray-800 hover:text-gray-600 font-semibold flex items-center">
-                    Tuition By Class
-                    <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                  </button>
-                  <ul className="absolute left-0 mt-2 w-48 bg-white border border-gray-200 shadow-lg rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-10">
-                    <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/neet">NEET</Link></li>
-                    <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/jee">JEE</Link></li>
-                    <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="#">Class 12 Tuition</Link></li>
-                    <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/class11">Class 11 Tuition</Link></li>
-                    <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/class10">Class 10 Tuition</Link></li>
-                    <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/class9">Class 9 Tuition</Link></li>
-                    <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/class8">Class 8 Tuition</Link></li>
-                    <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/class7">Class 7 Tuition</Link></li>
-                    <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/class6">Class 6 Tuition</Link></li>
-                    <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/class5">Class 5 Tuition</Link></li>
-                    <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/class4">Class 4 Tuition</Link></li>
-                    <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/class3">Class 3 Tuition</Link></li>
-                  </ul>
-                </li>
-                <li className="relative group">
-                  <button className="text-gray-800 hover:text-gray-600 font-semibold flex items-center">
-                    Tuition By Subject
-                    <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                  </button>
-                  <ul className="absolute left-0 mt-2 w-48 bg-white border border-gray-200 shadow-lg rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-10">
-                    <li><Link className="block px-7 py-2 text-gray-800 hover:bg-gray-100" to="/physics">Physics</Link></li>
-                    <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/chemistry">Chemistry</Link></li>
-                    <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/biology">Biology</Link></li>
-                    <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/cm">Computer Science</Link></li>
-                    <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/math">Maths</Link></li>
-                    <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/science">Science</Link></li>
-                    <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/english">English</Link></li>
-                    <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/socialstudy">Social Study (All Subjects)</Link></li>
-                    <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/iti">ITI Foundation (All)</Link></li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
+      <nav className="bg-white shadow-md">
+      <div className="container mx-auto px-4">
+        <div className="flex justify-between items-center py-4">
+          <Link className="text-2xl font-bold text-gray-800" to="/">
+            Book Online Demo
+          </Link>
+          
+          {/* Mobile Menu Button */}
+          <div className="lg:hidden">
+            <button
+              className="text-gray-800 focus:outline-none"
+              type="button"
+              onClick={toggleMenu}
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+              </svg>
+            </button>
+          </div>
+          
+          {/* Desktop Menu */}
+          <div className="hidden lg:flex lg:items-center">
+            <ul className="flex space-x-8">
+              <li className="relative group">
+                <button className="text-gray-800 hover:text-gray-600 font-semibold flex items-center">
+                  Tuition By Class
+                  <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                  </svg>
+                </button>
+                <ul className="absolute left-0 mt-2 w-48 bg-white border border-gray-200 shadow-lg rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-10">
+                  <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to='/neet'>NEET</Link></li>
+                  <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/jee">JEE</Link></li>
+                  <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/class12">Class 12 Tuition</Link></li>
+                  <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/class11">Class 11 Tuition</Link></li>
+                  <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/class10">Class 10 Tuition</Link></li>
+                  <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/class9">Class 9 Tuition</Link></li>
+                  <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/class8">Class 8 Tuition</Link></li>
+                  <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/class7">Class 7 Tuition</Link></li>
+                  <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/class6">Class 6 Tuition</Link></li>
+                  <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/class5">Class 5 Tuition</Link></li>
+                  <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/class4">Class 4 Tuition</Link></li>
+                  <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/class3">Class 3 Tuition</Link></li>
+                </ul>
+              </li>
+              <li className="relative group">
+                <button className="text-gray-800 hover:text-gray-600 font-semibold flex items-center">
+                  Tuition By Subject
+                  <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                  </svg>
+                </button>
+                <ul className="absolute left-0 mt-2 w-48 bg-white border border-gray-200 shadow-lg rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-10">
+                  <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/physics">Physics</Link></li>
+                  <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/chemistry">Chemistry</Link></li>
+                  <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/biology">Biology</Link></li>
+                  <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/cm">Computer Science</Link></li>
+                  <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/maths">Maths</Link></li>
+                  <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/science">Science</Link></li>
+                  <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/english">English</Link></li>
+                  <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/socialstudy">Social Study(All Subjects)</Link></li>
+                  <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/iti">ITI Foundation (ALL)</Link></li>
+                </ul>
+              </li>
+            </ul>
           </div>
         </div>
-      </nav>
+        
+        {/* Mobile Menu */}
+        <div className={`${isMenuOpen ? 'block' : 'hidden'} lg:hidden`}>
+        <ul className="flex space-x-8">
+              <li className="relative group">
+                <button className="text-gray-800 hover:text-gray-600 font-semibold flex items-center">
+                  Tuition By Class
+                  <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                  </svg>
+                </button>
+                <ul className="absolute left-0 mt-2 w-48 bg-white border border-gray-200 shadow-lg rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-10">
+                  <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to='/neet'>NEET</Link></li>
+                  <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/jee">JEE</Link></li>
+                  <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/class12">Class 12 Tuition</Link></li>
+                  <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/class11">Class 11 Tuition</Link></li>
+                  <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/class10">Class 10 Tuition</Link></li>
+                  <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/class9">Class 9 Tuition</Link></li>
+                  <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/class8">Class 8 Tuition</Link></li>
+                  <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/class7">Class 7 Tuition</Link></li>
+                  <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/class6">Class 6 Tuition</Link></li>
+                  <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/class5">Class 5 Tuition</Link></li>
+                  <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/class4">Class 4 Tuition</Link></li>
+                  <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/class3">Class 3 Tuition</Link></li>
+                </ul>
+              </li>
+              <li className="relative group">
+                <button className="text-gray-800 hover:text-gray-600 font-semibold flex items-center">
+                  Tuition By Subject
+                  <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                  </svg>
+                </button>
+                <ul className="absolute left-0 mt-2 w-48 bg-white border border-gray-200 shadow-lg rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-10">
+                  <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/physics">Physics</Link></li>
+                  <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/chemistry">Chemistry</Link></li>
+                  <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/biology">Biology</Link></li>
+                  <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/cm">Computer Science</Link></li>
+                  <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/maths">Maths</Link></li>
+                  <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/science">Science</Link></li>
+                  <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/english">English</Link></li>
+                  <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/socialstudy">Social Study(All Subjects)</Link></li>
+                  <li><Link className="block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/iti">ITI Foundation (ALL)</Link></li>
+                </ul>
+              </li>
+            </ul>
+        </div>
+      </div>
+    </nav>
       
       <h2 className='text-xl font-semibold mb-4'>JEE Main 2024: What are the Important Updates of Session 2?</h2>
       <p className='mb-6'>The syllabus has been reduced for 2024, with some chapters removed from subjects like Physics, Chemistry, and Mathematics. <br />For instance, topics like geostationary satellites in Physics and the entire chapter on "States of Matter" in Chemistry have been eliminated. The Joint Entrance Examination (JEE) Main is a national-level exam in India, primarily for students seeking admission to undergraduate engineering programs (B.Tech/B.E.) at National Institutes of Technology (NITs), Indian Institutes of Information Technology (IIITs), and other Centrally Funded Technical Institutions (CFTIs). It also serves as a qualifying exam for JEE Advanced, which is required for admission to the Indian Institutes of Technology (IITs).</p>

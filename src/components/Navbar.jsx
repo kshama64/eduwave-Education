@@ -1,185 +1,177 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import logo2 from '../assets/logo.png';
+import logo from '../assets/logo.png'
 
-export default function Navbar() {
+const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(null);
+  const [activeDropdown, setActiveDropdown] = useState(null); // Track which dropdown is open
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
-
-  const handleDropdown = (index) => {
-    setDropdownOpen(dropdownOpen === index ? null : index);
+  const toggleDropdown = (menu) => {
+    if (activeDropdown === menu) {
+      setActiveDropdown(null); // Close if the same menu is clicked again
+    } else {
+      setActiveDropdown(menu); // Open the clicked menu
+    }
   };
 
   return (
-    <nav className="bg-gray-100 py-4 shadow-md">
-      <div className="container mx-auto flex justify-between items-center px-4">
-        {/* Logo Section */}
-        <Link className="flex items-center" to="/">
+    <nav className="bg-gray-100 shadow-md">
+      <div className="container mx-auto px-4 flex justify-between items-center py-4 relative z-20">
+        {/* Logo */}
+        <div className="flex items-center">
+          <Link to=''>
           <img
-            src={logo2}
+            src={logo}
             alt="Logo"
-            className="w-28 h-28 rounded-full border-4 border-blue-400 shadow-lg hover:shadow-2xl transition-all duration-300"
+            className="h-24 w-24 rounded-full"
           />
-        </Link>
+          </Link>
+        </div>
 
-        {/* Mobile Menu Toggle Button */}
-        <button
-          className="text-gray-500 focus:outline-none lg:hidden"
-          onClick={toggleMenu}
-        >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            ></path>
-          </svg>
-        </button>
-
-        {/* Menu Section */}
-        <div
-          className={`${isOpen ? 'block' : 'hidden'} lg:flex lg:items-center lg:w-auto w-full`}
-        >
-          <ul className="flex flex-col lg:flex-row items-center lg:space-x-8 text-gray-700">
-            <li className="relative">
-              <button
-                className="py-2 px-6 hover:text-gray-900 hover:bg-gray-200 rounded-md focus:outline-none transition duration-200"
-                onClick={() => handleDropdown(1)}
-              >
-                Courses
-              </button>
-              <ul
-                className={`absolute left-0 top-full mt-2 bg-white shadow-lg rounded-md z-50 ${
-                  dropdownOpen === 1 ? 'block' : 'hidden'
-                }`}
-              >
-                {['Class 3rd', 'Class 4th', 'Class 5th', 'Class 6th', 'Class 7th', 'Class 8th', 'Class 9th', 'Class 10th', 'Class 11th', 'Class 12th'].map(
-                  (course, index) => (
-                    <li key={index}>
-                      <Link
-                        className="block px-4 py-2 hover:bg-gray-100 hover:text-gray-900 transition duration-200"
-                        to={`/class${index + 3}`}
-                      >
-                        {course}
-                      </Link>
-                    </li>
-                  )
-                )}
-              </ul>
-            </li>
-            <li>
-              <Link
-                className="py-2 px-6 hover:text-gray-900 hover:bg-gray-200 rounded-md transition duration-200"
-                to="/courses"
-              >
-                Courses for Kids
-              </Link>
-            </li>
-            <li className="relative">
-              <button
-                className="py-2 px-6 hover:text-gray-900 hover:bg-gray-200 rounded-md focus:outline-none transition duration-200"
-                onClick={() => handleDropdown(2)}
-              >
-                Free study material
-              </button>
-              <ul
-                className={`absolute left-0 top-full mt-2 bg-white shadow-lg rounded-md z-50 ${
-                  dropdownOpen === 2 ? 'block' : 'hidden'
-                }`}
-              >
-                <li>
-                  <Link
-                    className="block px-4 py-2 hover:bg-gray-100 hover:text-gray-900 transition duration-200"
-                    to="/ncert"
-                  >
-                    NCERT Solution
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className="block px-4 py-2 hover:bg-gray-100 hover:text-gray-900 transition duration-200"
-                    to="/cbse"
-                  >
-                    CBSE
-                  </Link>
-                </li>
-                <li>
-                  <hr className="border-t border-gray-200" />
-                </li>
-                <li>
-                  <Link
-                    className="block px-4 py-2 hover:bg-gray-100 hover:text-gray-900 transition duration-200"
-                    to="/jee"
-                  >
-                    JEE Main
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className="block px-4 py-2 hover:bg-gray-100 hover:text-gray-900 transition duration-200"
-                    to="/jeeadv"
-                  >
-                    JEE Advanced
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className="block px-4 py-2 hover:bg-gray-100 hover:text-gray-900 transition duration-200"
-                    to="/neet"
-                  >
-                    NEET
-                  </Link>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <Link
-                className="py-2 px-6 hover:text-gray-900 hover:bg-gray-200 rounded-md transition duration-200"
-                to="/online"
-              >
-                Online Courses
-              </Link>
-            </li>
-          </ul>
-
-          {/* Search Bar */}
-          <form className="mt-4 lg:mt-0 lg:flex items-center space-x-2 ml-16">
-            <div className="relative">
-              <input
-                className="px-4 py-2 w-72 h-10 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-700 shadow-md"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <svg
-                className="absolute top-1/2 right-4 transform -translate-y-1/2 w-5 h-5 text-gray-500"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M11 4a7 7 0 100 14 7 7 0 000-14zM21 21l-4.35-4.35"
-                ></path>
-              </svg>
+        {/* Links */}
+        <div className="hidden md:flex space-x-8">
+          {/* Courses */}
+          <div className="group relative z-10">
+            <Link to="#" className="text-lg font-semibold hover:text-blue-500">
+              Courses
+            </Link>
+            {/* Dropdown */}
+            <div className="absolute left-0 w-48 bg-white shadow-md rounded-md hidden group-hover:block z-20">
+              <Link to="/class3" className="block px-4 py-2 hover:bg-gray-200">Class 3</Link>
+              <Link to="/class4" className="block px-4 py-2 hover:bg-gray-200">Class 4</Link>
+              <Link to="/class5" className="block px-4 py-2 hover:bg-gray-200">Class 5</Link>
+              <Link to="/class6" className="block px-4 py-2 hover:bg-gray-200">Class 6</Link>
+              <Link to="/class7" className="block px-4 py-2 hover:bg-gray-200">Class 7</Link>
+              <Link to="/class8" className="block px-4 py-2 hover:bg-gray-200">Class 8</Link>
+              <Link to="/class9" className="block px-4 py-2 hover:bg-gray-200">Class 9</Link>
+              <Link to="/class10" className="block px-4 py-2 hover:bg-gray-200">Class 10</Link>
+              <Link to="/class11" className="block px-4 py-2 hover:bg-gray-200">Class 11</Link>
+              <Link to="/class12" className="block px-4 py-2 hover:bg-gray-200">Class 12</Link>
             </div>
-          </form>
+          </div>
+          {/* Courses for Kids */}
+          <div className="group relative z-10">
+            <Link to="/courses" className="text-lg font-semibold hover:text-blue-500">
+              Courses for Kids
+            </Link>
+            {/* Dropdown */}
+            {/* <div className="absolute left-0 mt-2 w-48 bg-white shadow-md rounded-md hidden group-hover:block z-20">
+              <Link to="#" className="block px-4 py-2 hover:bg-gray-200">Course A</Link>
+              <Link to="#" className="block px-4 py-2 hover:bg-gray-200">Course B</Link>
+            </div> */}
+          </div>
+
+          {/* Free Study Material */}
+          <div className="group relative z-10">
+            <Link to='' className="text-lg font-semibold hover:text-blue-500">
+              Free Study Material
+            </Link>
+            {/* Dropdown */}
+            <div className="absolute left-0 mt-2 w-48 bg-white shadow-md rounded-md hidden group-hover:block z-20">
+              <Link to="/ncert" className="block px-4 py-2 hover:bg-gray-200">NCERT Solution</Link>
+              <Link to="/cbse" className="block px-4 py-2 hover:bg-gray-200">CBSE Material</Link>
+              <Link to="/jee" className="block px-4 py-2 hover:bg-gray-200">JEE Main</Link>
+              <Link to="/jeeadv" className="block px-4 py-2 hover:bg-gray-200">JEE Advanced</Link>
+              <Link to="/neet" className="block px-4 py-2 hover:bg-gray-200">NEET </Link>
+            </div>
+          </div>
+
+          {/* Online Courses */}
+          <div>
+            <Link to="/online" className="text-lg font-semibold hover:text-blue-500">
+              Online Courses
+            </Link>
+          </div>
+        </div>
+        {/* Search bar */}
+        <div className="hidden md:flex items-center">
+          <input
+            type="text"
+            placeholder="Search"
+            className="border border-gray-300 rounded-full px-4 py-1"
+          />
+          <button className="ml-2 text-white bg-blue-500 rounded-full px-4 py-1">
+            Search
+          </button>
+        </div>
+
+        {/* Hamburger Menu (Mobile) */}
+        <div className="md:hidden">
+          <button onClick={() => setIsOpen(!isOpen)} className="text-gray-600">
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d={isOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16m-7 6h7'}
+              />
+            </svg>
+          </button>
         </div>
       </div>
+
+      {/* Mobile Menu */}
+      {isOpen && (
+        <div className="md:hidden bg-gray-100 z-10">
+          {/* Courses Dropdown */}
+          <div>
+            <button onClick={() => toggleDropdown('courses')} className="block px-4 py-2 w-full text-left hover:bg-gray-200">
+              Courses
+            </button>
+            {activeDropdown === 'courses' && (
+              <div className="pl-4">
+                <Link to="#" className="block px-4 py-2 hover:bg-gray-200">Course 1</Link>
+                <Link to="#" className="block px-4 py-2 hover:bg-gray-200">Course 2</Link>
+                <Link to="#" className="block px-4 py-2 hover:bg-gray-200">Course 3</Link>
+              </div>
+            )}
+          </div>
+
+          {/* Courses for Kids Dropdown */}
+          <div>
+            <button onClick={() => toggleDropdown('kids')} className="block px-4 py-2 w-full text-left hover:bg-gray-200">
+              Courses for Kids
+            </button>
+            {activeDropdown === 'kids' && (
+              <div className="pl-4">
+                <Link to="#" className="block px-4 py-2 hover:bg-gray-200">Course A</Link>
+                <Link to="#" className="block px-4 py-2 hover:bg-gray-200">Course B</Link>
+              </div>
+            )}
+          </div>
+
+          {/* Free Study Material Dropdown */}
+          <div>
+            <button onClick={() => toggleDropdown('material')} className="block px-4 py-2 w-full text-left hover:bg-gray-200">
+              Free Study Material
+            </button>
+            {activeDropdown === 'material' && (
+              <div className="pl-4">
+                <Link to="#" className="block px-4 py-2 hover:bg-gray-200">Material 1</Link>
+                <Link to="#" className="block px-4 py-2 hover:bg-gray-200">Material 2</Link>
+              </div>
+            )}
+          </div>
+
+          {/* Online Courses */}
+          <Link to="#" className="block px-4 py-2 hover:bg-gray-200">Online Courses</Link>
+
+          {/* Search input */}
+          <input
+            type="text"
+            placeholder="Search"
+            className="border border-gray-300 rounded-full px-4 py-2 my-2"
+          />
+        </div>
+      )}
     </nav>
   );
-}
+};
+
+export default Navbar;
