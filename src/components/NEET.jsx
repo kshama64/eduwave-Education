@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import img from '../assets/img1.jpg.png'
+import img from '../assets/img1.png'
 
 export default function NEET() {
 
@@ -22,10 +22,12 @@ export default function NEET() {
 <nav className="bg-white shadow-md">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center py-4">
-          <Link className="text-2xl font-bold text-gray-800" to="/">
-            Book Online Demo
-          </Link>
-          
+        <Link
+        className="bg-slate-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700 transition duration-200"
+        to="/bookonlinedemo"
+      >
+        Book Online Demo
+      </Link>
           {/* Mobile Menu Button */}
           <div className="lg:hidden">
             <button
@@ -225,7 +227,6 @@ export default function NEET() {
   </table>
 </div>
 
-
       <h2 className="text-xl md:text-2xl font-semibold text-gray-800 mb-2">NEET 2024 Address Proof</h2>
       <p className="text-gray-700 mb-4">
         During the NEET 2024 online application process, candidates must upload address proof, including their present and permanent address. The address proof serves as a verification of the candidate's residential details. It ensures that the information provided by the candidate is accurate and helps maintain the authenticity of the application. Candidates must upload valid documents that clearly indicate their current and permanent address, such as an Aadhaar card, passport, driving license, or any other government-issued identification with the address mentioned. It is crucial to upload the address proof accurately and ensure that the provided information aligns with the candidate's residential details to avoid any discrepancies during the application evaluation process.
@@ -250,6 +251,7 @@ export default function NEET() {
     />
     <p className="text-red-500 text-xs mt-1">Please enter a valid email address.</p>
   </div>
+  
   <div className="mb-4">
     <label htmlFor="phone" className="block text-gray-700 text-sm font-medium mb-1">Phone Number</label>
     <input
@@ -261,6 +263,25 @@ export default function NEET() {
     />
     <p className="text-red-500 text-xs mt-1">Please enter a valid phone number.</p>
   </div>
+
+  <div className="mb-4">
+    <label htmlFor="neet-subjects" className="block text-gray-700 text-sm font-medium mb-1">Select NEET Subjects</label>
+    <select 
+      id="neet-subjects" 
+      className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
+      required
+    >
+      <option value="">Select a subject</option>
+      <option value="physics">Physics</option>
+      <option value="chemistry">Chemistry</option>
+      <option value="biology">Biology</option>
+      <option value="zoology">Zoology</option>
+      <option value="botany">Botany</option>
+      <option value="botany">Mathmatics</option>
+    </select>
+    <p className="text-red-500 text-xs mt-1">Please select a subject.</p>
+  </div>
+
   <div className="mb-4">
     <label htmlFor="message" className="block text-gray-700 text-sm font-medium mb-1">Message</label>
     <textarea
@@ -270,6 +291,7 @@ export default function NEET() {
       className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
     />
   </div>
+
   <button
     type="submit"
     className="w-full py-2 px-4 bg-green-600 text-white font-semibold rounded-md shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500"
@@ -277,6 +299,7 @@ export default function NEET() {
     Submit
   </button>
 </form>
+
 
 
     </div>

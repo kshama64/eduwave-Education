@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import img from '../assets/img2.jpg.png'
+import img from '../assets/img1.png'
 
 export default function chemistry() {
 
@@ -19,9 +19,12 @@ export default function chemistry() {
       <nav className="bg-white shadow-md">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center py-4">
-          <Link className="text-2xl font-bold text-gray-800" to="/">
-            Book Online Demo
-          </Link>
+        <Link
+        className="bg-slate-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700 transition duration-200"
+        to="/bookonlinedemo"
+      >
+        Book Online Demo
+      </Link>
           
           {/* Mobile Menu Button */}
           <div className="lg:hidden">

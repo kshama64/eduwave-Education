@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import img from '../assets/img2.jpg.png';
+import img from '../assets/img1.png';
 
 
 export default function Class10tuition() {
@@ -20,9 +20,12 @@ export default function Class10tuition() {
       <nav className="bg-white shadow-md">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center py-4">
-          <Link className="text-2xl font-bold text-gray-800" to="/">
-            Book Online Demo
-          </Link>
+        <Link
+        className="bg-slate-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700 transition duration-200"
+        to="/bookonlinedemo"
+      >
+        Book Online Demo
+      </Link>
           
           {/* Mobile Menu Button */}
           <div className="lg:hidden">
@@ -176,22 +179,39 @@ export default function Class10tuition() {
         Contact Form
       </h3>
       <form className="max-w-lg mx-auto bg-white p-6 shadow-md rounded-lg">
-        <div className="mb-4">
-          <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">Email address</label>
-          <input type="email" id="email" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
-        </div>
-        <div className="mb-4">
-          <label htmlFor="phone" className="block text-gray-700 text-sm font-bold mb-2">Phone Number</label>
-          <input type="number" id="phone" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
-        </div>
-        <div className="mb-4">
-          <label htmlFor="className" className="block text-gray-700 text-sm font-bold mb-2">Class Name</label>
-          <input type="text" id="className" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
-        </div>
-        <button type="submit" className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">
-          Submit
-        </button>
-      </form>
+  <div className="mb-4">
+    <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">Email address</label>
+    <input type="email" id="email" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+  </div>
+  <div className="mb-4">
+    <label htmlFor="phone" className="block text-gray-700 text-sm font-bold mb-2">Phone Number</label>
+    <input type="number" id="phone" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+  </div>
+  <div className="mb-4">
+    <label htmlFor="className" className="block text-gray-700 text-sm font-bold mb-2">Class Name</label>
+    <input type="text" id="className" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+  </div>
+  <div className="mb-4">
+    <label htmlFor="subject" className="block text-gray-700 text-sm font-bold mb-2">Subject</label>
+    <select id="subject" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+      <option value="">Select a subject</option>
+      <optgroup label="Class 10 Subjects">
+        <option value="mathematics-10">Mathematics</option>
+        <option value="physics-10">Physics</option>
+        <option value="chemistery-10">Chemistery</option>
+        <option value="biology-10">Biology</option>
+        <option value="english-10">English</option>
+        <option value="social-science-10">Social Science</option>
+        <option value="hindi-10">Hindi</option>
+        {/* Add more subjects for Class 10 if needed */}
+      </optgroup>
+    </select>
+  </div>
+  <button type="submit" className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">
+    Submit
+  </button>
+</form>
+
     </div>
   );
 }

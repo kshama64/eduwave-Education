@@ -20,18 +20,18 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              <li>
+              {/* <li>
                 <Link to="/courses" className="hover:underline text-gray-400">Courses</Link>
-              </li>
+              </li> */}
               <li>
                 <Link to="/online" className="hover:underline text-gray-400">Online Classes</Link>
               </li>
               <li>
                 <Link to="/ncert" className="hover:underline text-gray-400">NCERT Solutions</Link>
               </li>
-              <li>
+              {/* <li>
                 <Link to="/contact" className="hover:underline text-gray-400">Contact Us</Link>
-              </li>
+              </li> */}
             </ul>
           </div>
 
@@ -42,7 +42,7 @@ export default function Footer() {
               Email: info@educationplatform.com
             </p>
             <p className="text-gray-400">
-              Phone: +1 (123) 456-7890
+              Phone: +1 (123) 456-7890 
             </p>
             <div className="flex space-x-4 mt-4">
               <a href="#" className="text-gray-400 hover:text-white">

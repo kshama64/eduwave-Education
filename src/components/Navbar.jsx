@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../assets/logo.png'
+import logo from '../assets/img.jpg'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,8 +23,7 @@ const Navbar = () => {
           <img
             src={logo}
             alt="Logo"
-            className="h-24 w-24 rounded-full"
-          />
+            className="h-24 w-24 rounded-full"/>
           </Link>
         </div>
 
@@ -36,7 +35,7 @@ const Navbar = () => {
               Courses
             </Link>
             {/* Dropdown */}
-            <div className="absolute left-0 w-48 bg-white shadow-md rounded-md hidden group-hover:block z-20">
+              <div className="absolute left-0 w-48 bg-white shadow-md rounded-md hidden group-hover:block z-20">
               <Link to="/class3" className="block px-4 py-2 hover:bg-gray-200">Class 3</Link>
               <Link to="/class4" className="block px-4 py-2 hover:bg-gray-200">Class 4</Link>
               <Link to="/class5" className="block px-4 py-2 hover:bg-gray-200">Class 5</Link>
@@ -51,9 +50,9 @@ const Navbar = () => {
           </div>
           {/* Courses for Kids */}
           <div className="group relative z-10">
-            <Link to="/courses" className="text-lg font-semibold hover:text-blue-500">
+            {/* <Link to="/courses" className="text-lg font-semibold hover:text-blue-500">
               Courses for Kids
-            </Link>
+            </Link> */}
             {/* Dropdown */}
             {/* <div className="absolute left-0 mt-2 w-48 bg-white shadow-md rounded-md hidden group-hover:block z-20">
               <Link to="#" className="block px-4 py-2 hover:bg-gray-200">Course A</Link>
@@ -75,7 +74,6 @@ const Navbar = () => {
               <Link to="/neet" className="block px-4 py-2 hover:bg-gray-200">NEET </Link>
             </div>
           </div>
-
           {/* Online Courses */}
           <div>
             <Link to="/online" className="text-lg font-semibold hover:text-blue-500">
@@ -88,13 +86,11 @@ const Navbar = () => {
           <input
             type="text"
             placeholder="Search"
-            className="border border-gray-300 rounded-full px-4 py-1"
-          />
+            className="border border-gray-300 rounded-full px-4 py-1"/>
           <button className="ml-2 text-white bg-blue-500 rounded-full px-4 py-1">
-            Search
+            Search 
           </button>
         </div>
-
         {/* Hamburger Menu (Mobile) */}
         <div className="md:hidden">
           <button onClick={() => setIsOpen(!isOpen)} className="text-gray-600">
@@ -103,14 +99,12 @@ const Navbar = () => {
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
+              xmlns="http://www.w3.org/2000/svg">
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2"
-                d={isOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16m-7 6h7'}
-              />
+                d={isOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16m-7 6h7'}/>
             </svg>
           </button>
         </div>
@@ -126,15 +120,22 @@ const Navbar = () => {
             </button>
             {activeDropdown === 'courses' && (
               <div className="pl-4">
-                <Link to="#" className="block px-4 py-2 hover:bg-gray-200">Course 1</Link>
-                <Link to="#" className="block px-4 py-2 hover:bg-gray-200">Course 2</Link>
-                <Link to="#" className="block px-4 py-2 hover:bg-gray-200">Course 3</Link>
+                <Link to="/class3" className="block px-4 py-2 hover:bg-gray-200">Class 3</Link>
+              <Link to="/class4" className="block px-4 py-2 hover:bg-gray-200">Class 4</Link>
+              <Link to="/class5" className="block px-4 py-2 hover:bg-gray-200">Class 5</Link>
+              <Link to="/class6" className="block px-4 py-2 hover:bg-gray-200">Class 6</Link>
+              <Link to="/class7" className="block px-4 py-2 hover:bg-gray-200">Class 7</Link>
+              <Link to="/class8" className="block px-4 py-2 hover:bg-gray-200">Class 8</Link>
+              <Link to="/class9" className="block px-4 py-2 hover:bg-gray-200">Class 9</Link>
+              <Link to="/class10" className="block px-4 py-2 hover:bg-gray-200">Class 10</Link>
+              <Link to="/class11" className="block px-4 py-2 hover:bg-gray-200">Class 11</Link>
+              <Link to="/class12" className="block px-4 py-2 hover:bg-gray-200">Class 12</Link>
               </div>
             )}
           </div>
 
           {/* Courses for Kids Dropdown */}
-          <div>
+          {/* <div>
             <button onClick={() => toggleDropdown('kids')} className="block px-4 py-2 w-full text-left hover:bg-gray-200">
               Courses for Kids
             </button>
@@ -144,8 +145,7 @@ const Navbar = () => {
                 <Link to="#" className="block px-4 py-2 hover:bg-gray-200">Course B</Link>
               </div>
             )}
-          </div>
-
+          </div> */}
           {/* Free Study Material Dropdown */}
           <div>
             <button onClick={() => toggleDropdown('material')} className="block px-4 py-2 w-full text-left hover:bg-gray-200">
@@ -158,7 +158,6 @@ const Navbar = () => {
               </div>
             )}
           </div>
-
           {/* Online Courses */}
           <Link to="#" className="block px-4 py-2 hover:bg-gray-200">Online Courses</Link>
 
@@ -166,8 +165,7 @@ const Navbar = () => {
           <input
             type="text"
             placeholder="Search"
-            className="border border-gray-300 rounded-full px-4 py-2 my-2"
-          />
+            className="border border-gray-300 rounded-full px-4 py-2 my-2"/>
         </div>
       )}
     </nav>

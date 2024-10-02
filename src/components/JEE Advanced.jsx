@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import img from '../assets/img.jpg.png'
+import img from '../assets/img1.png'
 
 export default function JEEAdvanced() {
   return (

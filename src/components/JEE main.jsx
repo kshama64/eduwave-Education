@@ -129,7 +129,7 @@
 
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import img from '../assets/img.jpg.png'
+import img from '../assets/img1.png'
 
 
 export default function JEEmain() {
@@ -147,9 +147,12 @@ export default function JEEmain() {
       <nav className="bg-white shadow-md">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center py-4">
-          <Link className="text-2xl font-bold text-gray-800" to="/">
-            Book Online Demo
-          </Link>
+        <Link
+        className="bg-slate-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700 transition duration-200"
+        to="/bookonlinedemo"
+      >
+        Book Online Demo
+      </Link>
           
           {/* Mobile Menu Button */}
           <div className="lg:hidden">
@@ -302,37 +305,58 @@ export default function JEEmain() {
       <p className='mb-6'>The JEE Main 2024 Syllabus spans physics, chemistry, and mathematics, encompassing every critical concept and subject area. This extensive coverage ensures that you have a well-rounded understanding of the subjects, giving you a competitive edge.</p>
       
       <form className='max-w-lg mx-auto'>
-        <div className='mb-4'>
-          <label htmlFor="email" className='block text-sm font-medium text-gray-700'>Email address</label>
-          <input 
-            type="email" 
-            id="email" 
-            className='mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm' 
-            required
-          />
-        </div>
-        <div className='mb-4'>
-          
-          <label htmlFor="phone" className='block text-sm font-medium text-gray-700'>Phone Number</label>
-          <input 
-            type="number" 
-            id="phone" 
-            className='mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm' 
-            required
-          />
-        </div>
-        <div className='mb-4'>
-          <label htmlFor="message" className='block text-sm font-medium text-gray-700'>Message</label>
-          <input 
-            type="text" 
-            id="message" 
-            className='mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm' 
-          />
-        </div>
-        <button type="submit" className='w-full bg-green-500 text-white font-semibold py-2 rounded-md hover:bg-green-600'>
-          Submit
-        </button>
-      </form>
+  <div className='mb-4'>
+    <label htmlFor="email" className='block text-sm font-medium text-gray-700'>Email address</label>
+    <input 
+      type="email" 
+      id="email" 
+      className='mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm' 
+      required
+    />
+  </div>
+  
+  <div className='mb-4'>
+    <label htmlFor="phone" className='block text-sm font-medium text-gray-700'>Phone Number</label>
+    <input 
+      type="number" 
+      id="phone" 
+      className='mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm' 
+      required
+    />
+  </div>
+  
+  <div className='mb-4'>
+    <label htmlFor="jee-subjects" className='block text-sm font-medium text-gray-700'>Select JEE Subjects</label>
+    <select 
+      id="jee-subjects" 
+      className='mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm' 
+      required
+    >
+      <option value="">Select a subject</option>
+      <option value="physics">Physics</option>
+      <option value="chemistry">Chemistry</option>
+      <option value="mathematics">Mathematics</option>
+      <option value="mathematics">Biology</option>
+      <option value="mathematics">Zoology</option>
+      <option value="mathematics">Botany</option>
+    </select>
+  </div>
+
+  <div className='mb-4'>
+    <label htmlFor="message" className='block text-sm font-medium text-gray-700'>Message</label>
+    <input 
+      type="text" 
+      id="message" 
+      className='mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm' 
+    />
+  </div>
+  
+  <button type="submit" className='w-full bg-green-500 text-white font-semibold py-2 rounded-md hover:bg-green-600'>
+    Submit
+  </button>
+</form>
+
+
     </div>
   )
 }

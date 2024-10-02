@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import img from '../assets/img2.jpg.png';
+import img from '../assets/img1.png';
 
 
 export default function Class12tuition() {
@@ -20,9 +20,12 @@ export default function Class12tuition() {
       <nav className="bg-white shadow-md">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center py-4">
-          <Link className="text-2xl font-bold text-gray-800" to="/">
-            Book Online Demo
-          </Link>
+        <Link
+        className="bg-slate-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700 transition duration-200"
+        to="/bookonlinedemo"
+      >
+        Book Online Demo
+      </Link>
           
           {/* Mobile Menu Button */}
           <div className="lg:hidden">
@@ -175,23 +178,39 @@ export default function Class12tuition() {
       <h3 className="text-xl md:text-2xl font-semibold text-center mt-8 mb-4">
         Contact Form
       </h3>
-      <form className="max-w-lg mx-auto bg-white p-6 shadow-md rounded-lg">
-        <div className="mb-4">
-          <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">Email address</label>
-          <input type="email" id="email" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
-        </div>
-        <div className="mb-4">
-          <label htmlFor="phone" className="block text-gray-700 text-sm font-bold mb-2">Phone Number</label>
-          <input type="number" id="phone" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
-        </div>
-        <div className="mb-4">
-          <label htmlFor="className" className="block text-gray-700 text-sm font-bold mb-2">Class Name</label>
-          <input type="text" id="className" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
-        </div>
-        <button type="submit" className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">
-          Submit
-        </button>
-      </form>
+    <form className="max-w-lg mx-auto bg-white p-6 shadow-md rounded-lg">
+  <div className="mb-4">
+    <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">Email address</label>
+    <input type="email" id="email" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+  </div>
+  <div className="mb-4">
+    <label htmlFor="phone" className="block text-gray-700 text-sm font-bold mb-2">Phone Number</label>
+    <input type="number" id="phone" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+  </div>
+  <div className="mb-4">
+    <label htmlFor="className" className="block text-gray-700 text-sm font-bold mb-2">Class Name</label>
+    <input type="text" id="className" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+  </div>
+  <div className="mb-4">
+    <label htmlFor="subject" className="block text-gray-700 text-sm font-bold mb-2">Subject (Class 12)</label>
+    <select id="subject" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+      <option value="">Select a subject</option>
+      <option value="mathematics">Mathematics</option>
+      <option value="physics">Physics</option>
+      <option value="chemistry">Chemistry</option>
+      <option value="biology">Biology</option>
+      <option value="english">English</option>
+      <option value="history">History</option>
+      <option value="geography">Geography</option>
+      <option value="hindi">Hindi</option>
+      {/* Add more subjects as needed */}
+    </select>
+  </div>
+  <button type="submit" className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">
+    Submit
+  </button>
+</form>
+
     </div>
   );
 }

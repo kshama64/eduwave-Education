@@ -32,6 +32,9 @@ import English from './components/English.jsx'
 import Socialstudy from './components/Socialstudy.jsx'
 import ITI from './components/ITI.jsx'
 import Onlincourses from './components/Online courses.jsx'
+import BookOnlinedemo from './components/BookOnlinedemo.jsx'
+import Form from './components/Form.jsx'
+import StudentForm from './components/StudentForm.jsx'
 
 const router=createBrowserRouter(
   createRoutesFromElements(
@@ -65,6 +68,9 @@ const router=createBrowserRouter(
         <Route path='/english' element={<English/>}/>
         <Route path='/socialstudy' element={<Socialstudy/>}/>
         <Route path='/iti' element={<ITI/>}/>
+        <Route path='/bookonlinedemo' element={<BookOnlinedemo/>}/>
+        <Route path='/form' element={<Form/>}/>
+        <Route path='/Studentform' element={<StudentForm/>}/>
       </Route>
   )
 )

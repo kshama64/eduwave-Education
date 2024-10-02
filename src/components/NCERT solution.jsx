@@ -1,5 +1,5 @@
 import React from 'react'
-import img from '../assets/img3.png'
+import img from '../assets/img1.png'
 
 export default function NCERTsolution() {
   return (

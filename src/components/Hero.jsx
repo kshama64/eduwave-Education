@@ -5,9 +5,9 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
-import banner1 from '../assets/img.jpg.png'
-import banner12 from '../assets/img1.jpg.png'
-import banner13 from '../assets/img2.jpg.png'
+import banner1 from '../assets/img1.png'
+import banner12 from '../assets/img1.png'
+import banner13 from '../assets/img1.png'
 
 
 import { useState } from 'react';
@@ -22,38 +22,94 @@ import { useState } from 'react';
     <nav className="bg-white border-b border-gray-200 shadow-md relative z-50">
     <div className="container mx-auto px-4 sm:px-6 lg:px-8">
       <div className="flex items-center justify-between h-16">
-        <Link className="text-xl font-bold text-gray-800 hover:text-gray-600 transition duration-300 ease-in-out" to="#">Book Online Demo</Link>
+        <Link
+          className="bg-slate-600 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition duration-300 ease-in-out"
+          to="/bookonlinedemo">
+          Book Online Demo
+        </Link>
   
         {/* Mobile Menu Toggle */}
         <div className="lg:hidden">
-          <button 
-            onClick={() => setIsMenuOpen(!isMenuOpen)} 
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="text-gray-800 hover:text-gray-600 focus:outline-none transition duration-300 ease-in-out">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-            </svg>
+            {isMenuOpen ? (
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M6 18L18 6M6 6l12 12"
+                ></path>
+              </svg>
+            ) : (
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16m-7 6h7"
+                ></path>
+              </svg>
+            )}
           </button>
         </div>
   
         {/* Desktop Menu */}
-        <div className={`lg:flex space-x-8 ${isMenuOpen ? 'block' : 'hidden'}`}>
+        <div className={`hidden lg:flex space-x-8`}>
           {/* Tuition By Class Dropdown */}
           <div className="relative group">
-            <button 
-              className="text-gray-800 hover:text-gray-600 font-semibold flex items-center transition duration-300 ease-in-out">
+            <button className="text-gray-800 hover:text-gray-600 font-semibold flex items-center transition duration-300 ease-in-out">
               Tuition By Class
-              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+              <svg
+                className="w-5 h-5 ml-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M19 9l-7 7-7-7"
+                ></path>
               </svg>
             </button>
   
             {/* Dropdown Menu */}
             <div className="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 py-2 z-50 transition duration-300 ease-in-out">
-              {['NEET', 'JEE', 'Class 12', 'Class 11', 'Class 10', 'Class 9', 'Class 8', 'Class 7', 'Class 6', 'Class 5', 'Class 4', 'Class 3'].map((classItem) => (
-                <Link 
-                  to={`/${classItem.toLowerCase().replace(/\s/g, '')}`} 
+              {[
+                "NEET",
+                "JEE",
+                "Class 12",
+                "Class 11",
+                "Class 10",
+                "Class 9",
+                "Class 8",
+                "Class 7",
+                "Class 6",
+                "Class 5",
+                "Class 4",
+                "Class 3",
+              ].map((classItem) => (
+                <Link
+                  to={`/${classItem.toLowerCase().replace(/\s/g, "")}`}
                   className="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-gray-600 transition duration-300 ease-in-out"
-                  key={classItem}>
+                  key={classItem}
+                >
                   {classItem}
                 </Link>
               ))}
@@ -62,21 +118,42 @@ import { useState } from 'react';
   
           {/* Tuition By Subject Dropdown */}
           <div className="relative group">
-            <button 
-              className="text-gray-800 hover:text-gray-600 font-semibold flex items-center transition duration-300 ease-in-out">
+            <button className="text-gray-800 hover:text-gray-600 font-semibold flex items-center transition duration-300 ease-in-out">
               Tuition By Subject
-              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+              <svg
+                className="w-5 h-5 ml-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M19 9l-7 7-7-7"
+                ></path>
               </svg>
             </button>
   
             {/* Dropdown Menu */}
             <div className="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 py-2 z-50 transition duration-300 ease-in-out">
-              {['Physics', 'Chemistry', 'Biology', 'Computer Science', 'Math', 'Science', 'English', 'Social Study', 'ITI Foundation'].map((subject) => (
-                <Link 
-                  to={`/${subject.toLowerCase().replace(/\s/g, '')}`} 
+              {[
+                "Physics",
+                "Chemistry",
+                "Biology",
+                "Computer Science",
+                "Math",
+                "Science",
+                "English",
+                "Social Study",
+                "ITI Foundation",
+              ].map((subject) => (
+                <Link
+                  to={`/${subject.toLowerCase().replace(/\s/g, "")}`}
                   className="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-gray-600 transition duration-300 ease-in-out"
-                  key={subject}>
+                  key={subject}
+                >
                   {subject} (Class 9-12)
                 </Link>
               ))}
@@ -89,32 +166,81 @@ import { useState } from 'react';
     {/* Mobile Menu */}
     {isMenuOpen && (
       <div className="lg:hidden px-4 pt-4 pb-3 space-y-1">
-        <button 
-          onClick={() => setIsClassDropdownOpen(!isClassDropdownOpen)} 
-          className="w-full text-left text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md transition duration-300 ease-in-out">
-          Tuition By Class
-        </button>
-        {isClassDropdownOpen && (
-          <div className="pl-4">
-            <Link to="/neet" className="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-gray-600 transition duration-300 ease-in-out">NEET</Link>
-            <Link to="/jee" className="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-gray-600 transition duration-300 ease-in-out">JEE</Link>
-          </div>
-        )}
+        <div>
+          <button
+            onClick={() => setIsClassDropdownOpen(!isClassDropdownOpen)}
+            className="w-full text-left text-gray-800 hover:bg-gray-100 hover:text-gray-600 px-3 py-2 rounded-md transition duration-300 ease-in-out flex justify-between items-center"
+          >
+            Tuition By Class
+            <svg
+              className={`w-5 h-5 transform transition duration-300 ${
+                isClassDropdownOpen ? "rotate-180" : ""
+              }`}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M19 9l-7 7-7-7"
+              ></path>
+            </svg>
+          </button>
+          {isClassDropdownOpen && (
+            <div className="pl-4 space-y-1">
+              {["NEET", "JEE", "Class 12", "Class 11", "Class 10"].map(
+                (classItem) => (
+                  <Link
+                    to={`/${classItem.toLowerCase()}`}
+                    className="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-gray-600 transition duration-300 ease-in-out"
+                    key={classItem}
+                  >
+                    {classItem}
+                  </Link>
+                )
+              )}
+            </div>
+          )}
+        </div>
   
-        <button 
-          onClick={() => setIsSubjectDropdownOpen(!isSubjectDropdownOpen)} 
-          className="w-full text-left text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md transition duration-300 ease-in-out">
-          Tuition By Subject
-        </button>
-        {isSubjectDropdownOpen && (
-          <div className="pl-4">
-            <Link to="/physics" className="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-gray-600 transition duration-300 ease-in-out">Physics</Link>
-            <Link to="/chemistry" className="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-gray-600 transition duration-300 ease-in-out">Chemistry</Link>
-          </div>
-        )}
+        <div>
+          <button
+            onClick={() => setIsSubjectDropdownOpen(!isSubjectDropdownOpen)}
+            className="w-full text-left text-gray-800 hover:bg-gray-100 hover:text-gray-600 px-3 py-2 rounded-md transition duration-300 ease-in-out flex justify-between items-center"
+          >
+            Tuition By Subject
+            <svg
+              className={`w-5 h-5 transform transition duration-300 ${
+                isSubjectDropdownOpen ? "rotate-180" : ""
+              }`}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M19 9l-7 7-7-7"
+              ></path>
+            </svg>
+          </button>
+          {isSubjectDropdownOpen && (
+            <div className="pl-4 space-y-1">
+              {["Physics", "Chemistry", "Biology"].map((subject) => (
+                <Link
+                  to={`/${subject.toLowerCase()}`}
+                  className="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-gray-600 transition duration-300 ease-in-out"
+                  key={subject}
+                >
+                  {subject}
+                </Link>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
     )}
   </nav>
+  
+  
+  
   
   
   );
@@ -288,161 +414,205 @@ return (
   <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-6">
     Exam Categories
   </h1>
-  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {/* NEET */}
     <div className="p-2">
-      <div className="bg-red-200 p-4 rounded-md shadow-md flex flex-col items-center h-60">
-        <h1 className="text-center font-bold text-black-800 mb-4">NEET</h1>
+      <div className="bg-red-200 p-4 rounded-md shadow-md flex flex-col items-center h-60 lg:h-72">
+        <h1 className="text-center font-bold text-black-800 mb-4">Neet</h1>
         <div className="flex flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0 items-center">
           <Link to='class11'>
-          <button
-            type="button"
-            className="mb-4 rounded-full bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black h-10 w-32 max-w-xs">
-            Class 11
-          </button>
+            <button
+              type="button"
+              className="rounded-full bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 h-10 w-32 max-w-xs">
+              Class 11
+            </button>
           </Link>
           <Link to='class12'>
-          <button
-            type="button"
-            className="mb-4 rounded-full bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black h-10 w-32 max-w-xs">
-            Class 12
-          </button>
+            <button
+              type="button"
+              className="rounded-full bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 h-10 w-32 max-w-xs">
+              Class 12
+            </button>
           </Link>
           <img
             src="https://static.pw.live/5eb393ee95fab7468a79d189/GLOBAL_CMS/9816db69-099c-4020-935c-b98cc3ab4464.webp"
-            alt=""
-            className="w-28 h-32"/>
+            alt="IIT"
+            className="w-16 h-16 object-contain md:hidden"/> {/* Hide in md and larger screens */}
+          <img
+            src="https://static.pw.live/5eb393ee95fab7468a79d189/GLOBAL_CMS/9816db69-099c-4020-935c-b98cc3ab4464.webp"
+            alt="IIT"
+            className="hidden md:block w-24 h-28 object-contain"/> {/* Show in md and larger screens */}
         </div>
       </div>
     </div>
+
+    {/* IIT Foundation */}
     <div className="p-2">
-      <div className="bg-red-200 p-4 rounded-md shadow-md flex flex-col items-center h-60">
+      <div className="bg-red-200 p-4 rounded-md shadow-md flex flex-col items-center h-60 lg:h-72">
         <h1 className="text-center font-bold text-black-800 mb-4">IIT Foundation</h1>
         <div className="flex flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0 items-center">
           <Link to='class11'>
-          <button
-            type="button"
-            className="mb-4 rounded-full bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black h-10 w-32 max-w-xs">
-            Class 11
-          </button>
+            <button
+              type="button"
+              className="rounded-full bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 h-10 w-32 max-w-xs">
+              Class 5 to 10
+            </button>
           </Link>
           <Link to='class12'>
-          <button
-            type="button"
-            className="mb-4 rounded-full bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black h-10 w-32 max-w-xs">
-            Class 12
-          </button>
+            <button
+              type="button"
+              className="rounded-full bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 h-10 w-32 max-w-xs">
+              PCM
+            </button>
           </Link>
           <img
             src="https://static.pw.live/5eb393ee95fab7468a79d189/GLOBAL_CMS/9816db69-099c-4020-935c-b98cc3ab4464.webp"
-            alt=""
-            className="w-28 h-32"/>
+            alt="IIT"
+            className="w-16 h-16 object-contain md:hidden"/> {/* Hide in md and larger screens */}
+          <img
+            src="https://static.pw.live/5eb393ee95fab7468a79d189/GLOBAL_CMS/9816db69-099c-4020-935c-b98cc3ab4464.webp"
+            alt="IIT"
+            className="hidden md:block w-24 h-28 object-contain"/> {/* Show in md and larger screens */}
         </div>
       </div>
     </div>
+
+    {/* School Preparation */}
     <div className="p-2">
-      <div className="bg-red-200 p-4 rounded-md shadow-md flex flex-col items-center h-60">
+      <div className="bg-red-200 p-4 rounded-md shadow-md flex flex-col items-center h-60 lg:h-72">
         <h1 className="text-center font-bold text-black-800 mb-4">School Preparation</h1>
         <div className="flex flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0 items-center">
           <Link to='class11'>
-          <button
-            type="button"
-            className="mb-4 rounded-full bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black h-10 w-32 max-w-xs">
-            Class 11
-          </button>
+            <button
+              type="button"
+              className="rounded-full bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 h-10 w-32 max-w-xs">
+              Class 3 to 10
+            </button>
           </Link>
           <Link to='class12'>
-          <button
-            type="button"
-            className="mb-4 rounded-full bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black h-10 w-32 max-w-xs">
-            Class 12
-          </button>
+            <button
+              type="button"
+              className="rounded-full bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 h-10 w-32 max-w-xs">
+              All Subjects
+            </button>
           </Link>
           <img
             src="https://static.pw.live/5eb393ee95fab7468a79d189/GLOBAL_CMS/9816db69-099c-4020-935c-b98cc3ab4464.webp"
-            alt="" className="w-28 h-32"/>
+            alt="School Preparation"
+            className="w-16 h-16 object-contain md:hidden"/> {/* Hide in md and larger screens */}
+          <img
+            src="https://static.pw.live/5eb393ee95fab7468a79d189/GLOBAL_CMS/9816db69-099c-4020-935c-b98cc3ab4464.webp"
+            alt="School Preparation"
+            className="hidden md:block w-24 h-28 object-contain"/> {/* Show in md and larger screens */}
         </div>
       </div>
     </div>
   </div>
-  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+  {/* Second Row */}
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
+    {/* All State Boards */}
     <div className="p-2">
-      <div className="bg-red-200 p-4 rounded-md shadow-md flex flex-col items-center h-60">
-        <h1 className="text-center font-bold text-black-800 mb-4">NCERT Solution</h1>
+      <div className="bg-red-200 p-4 rounded-md shadow-md flex flex-col items-center h-60 lg:h-72">
+        <h1 className="text-center font-bold text-black-800 mb-4">All State Boards</h1>
         <div className="flex flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0 items-center">
           <Link to='class11'>
-          <button
-            type="button"
-            className="mb-4 rounded-full bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black h-10 w-32 max-w-xs">
-            Class 11
-          </button>
+            <button
+              type="button"
+              className="rounded-full bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 h-10 w-48 max-w-xs">
+              Hindi & English Medium
+            </button>
           </Link>
           <Link to='class12'>
-          <button
-            type="button"
-            className="mb-4 rounded-full bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black h-10 w-32 max-w-xs">
-            Class 12
-          </button>
+            <button
+              type="button"
+              className="rounded-full bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 h-10 w-32 max-w-xs">
+              Class 1 to 12
+            </button>
           </Link>
           <img
             src="https://static.pw.live/5eb393ee95fab7468a79d189/GLOBAL_CMS/9816db69-099c-4020-935c-b98cc3ab4464.webp"
-            alt=""
-            className="w-28 h-32"/>
+            alt="State Boards"
+            className="w-16 h-16 object-contain md:hidden"/> {/* Hide in md and larger screens */}
+          <img
+            src="https://static.pw.live/5eb393ee95fab7468a79d189/GLOBAL_CMS/9816db69-099c-4020-935c-b98cc3ab4464.webp"
+            alt="State Boards"
+            className="hidden md:block w-24 h-28 object-contain"/> {/* Show in md and larger screens */}
         </div>
       </div>
     </div>
+
+    {/* CBSE */}
     <div className="p-2">
-      <div className="bg-red-200 p-4 rounded-md shadow-md flex flex-col items-center h-60">
+      <div className="bg-red-200 p-4 rounded-md shadow-md flex flex-col items-center h-60 lg:h-72">
         <h1 className="text-center font-bold text-black-800 mb-4">CBSE</h1>
         <div className="flex flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0 items-center">
           <Link to='class11'>
-          <button
-            type="button"
-            className="mb-4 rounded-full bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black h-10 w-32 max-w-xs">
-            Class 11
-          </button>
+            <button
+              type="button"
+              className="rounded-full bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 h-10 w-32 max-w-xs">
+              ICSE
+            </button>
           </Link>
           <Link to='class11'>
-          <button
-            type="button"
-            className="mb-4 rounded-full bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black h-10 w-32 max-w-xs"> Class 12
-          </button>
+            <button
+              type="button"
+              className="rounded-full bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 h-10 w-32 max-w-xs">
+              All Subjects
+            </button>
           </Link>
           <img
             src="https://static.pw.live/5eb393ee95fab7468a79d189/GLOBAL_CMS/9816db69-099c-4020-935c-b98cc3ab4464.webp"
-            alt=""
-            className="w-28 h-32"/>
+            alt="CBSE"
+            className="w-16 h-16 object-contain md:hidden"/> {/* Hide in md and larger screens */}
+          <img
+            src="https://static.pw.live/5eb393ee95fab7468a79d189/GLOBAL_CMS/9816db69-099c-4020-935c-b98cc3ab4464.webp"
+            alt="CBSE"
+            className="hidden md:block w-24 h-28 object-contain"/> {/* Show in md and larger screens */}
         </div>
       </div>
     </div>
+
+    {/* IIT JEE */}
     <div className="p-2">
-      <div className="bg-red-200 p-4 rounded-md shadow-md flex flex-col items-center h-60">
-        <h1 className="text-center font-bold text-black-800 mb-4">JEE Advanced</h1>
+      <div className="bg-red-200 p-4 rounded-md shadow-md flex flex-col items-center h-60 lg:h-72">
+        <h1 className="text-center font-bold text-black-800 mb-4">IIT JEE</h1>
         <div className="flex flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0 items-center">
           <Link to='class11'>
-          <button
-            type="button"
-            className="mb-4 rounded-full bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black h-10 w-32 max-w-xs">
-            Class 11
-          </button>
+            <button
+              type="button"
+              className="rounded-full bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 h-10 w-32 max-w-xs">
+              Class 11
+            </button>
           </Link>
           <Link to='class12'>
-          <button
-            type="button"
-            className="mb-4 rounded-full bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black h-10 w-32 max-w-xs">
-            Class 12
-          </button>
+            <button
+              type="button"
+              className="rounded-full bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 h-10 w-32 max-w-xs">
+              Class 12
+            </button>
           </Link>
           <img
             src="https://static.pw.live/5eb393ee95fab7468a79d189/GLOBAL_CMS/9816db69-099c-4020-935c-b98cc3ab4464.webp"
-            alt="" className="w-28 h-32"/>
+            alt="IIT JEE"
+            className="w-16 h-16 object-contain md:hidden"/> {/* Hide in md and larger screens */}
+          <img
+            src="https://static.pw.live/5eb393ee95fab7468a79d189/GLOBAL_CMS/9816db69-099c-4020-935c-b98cc3ab4464.webp"
+            alt="IIT JEE"
+            className="hidden md:block w-24 h-28 object-contain"/> {/* Show in md and larger screens */}
         </div>
       </div>
     </div>
   </div>
 </div>
+
+
+
+
 <div className="course3 px-4 py-8">
   <div className="text-center mb-6">
     <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold">
+
       Book your <span className="text-primary">Free Demo</span> session
     </h1>
     <p className="text-base md:text-lg mt-2">
